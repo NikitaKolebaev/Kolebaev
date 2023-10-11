@@ -17,9 +17,9 @@ def value(num):
 t = float(input("Период "))
 try:
     c = 0
+    GPIO.output(dac, 0)
+    time.sleep(1)
     while True:
-        GPIO.output(dac, 0)
-        time.sleep(1)
         d = t / 510
         for i in range(0, 256):
             print(value(i))
@@ -30,7 +30,7 @@ try:
             GPIO.output(dac, to_bin(i))
             time.sleep(d)
         c += 1
-        if c == 1:
+        if c == 3:
             break
     GPIO.output(dac, 0)
     print(value(0))
