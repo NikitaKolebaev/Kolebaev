@@ -1,0 +1,16 @@
+import numpy as np
+import matplotlib.pyplot as plt
+x = np.array([0, 100])
+y = np.array([0, 5])    
+t = (5) / (100)
+print(10*t)
+fig, ax = plt.subplots()
+ax.minorticks_on()
+ax.grid(which='minor',color='gray',linestyle=':')
+ax.plot(x, y, color='black', linestyle='-', linewidth= 1, marker='x', markersize=2, markerfacecolor='white', markeredgewidth=1.5, markeredgecolor='red', label = '0.05 * step')
+ax.set_xlabel('Количество шагов')
+ax.set_ylabel('Перемещение трубки Пито, мм')
+ax.grid(True, color='lightgray', linestyle='-')
+ax.legend()
+plt.show()
+fig.savefig('2.png')
